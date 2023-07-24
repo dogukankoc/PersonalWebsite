@@ -4,9 +4,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddSwaggerGen();
+
+//builder.Services.AddSwagger();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseSwagger();
+
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
