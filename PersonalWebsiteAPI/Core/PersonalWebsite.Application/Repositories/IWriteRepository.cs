@@ -1,12 +1,14 @@
-﻿namespace PersonalWebsiteAPI.Application.Repositories
+﻿using PersonalWebsiteAPI.Domain.Entities.Common;
+
+namespace PersonalWebsiteAPI.Application.Repositories
 {
-    public interface IWriteRepository<T> : IRepository<T> where T : class
+    public interface IWriteRepository<T> : IRepository<T> where T : BaseEntity
     {
         Task<bool> AddAsync(T model);
         Task<bool> AddRangeAsync(List<T> datas);
         bool Remove(T model);
         bool RemoveRange(List<T> datas);
-        Task<bool> RemoveAsync(string id);
+        Task<bool> RemoveAsync(int id);
         bool Update(T model);
         Task<int> SaveAsync();
     }
