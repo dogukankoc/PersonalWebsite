@@ -8,8 +8,8 @@ namespace PersonalWebsiteAPI.Application.Repositories
         Task<bool> AddRangeAsync(List<T> datas);
         bool Remove(T model);
         bool RemoveRange(List<T> datas);
-        Task<bool> RemoveAsync(int id);
+        Task<bool> RemoveAsyncById(int id);
         bool Update(T model);
-        Task<int> SaveAsync();
+        Task<int> SaveChangesAsync();
     }
 }

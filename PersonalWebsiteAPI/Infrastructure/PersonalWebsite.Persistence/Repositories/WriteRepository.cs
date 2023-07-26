@@ -30,13 +30,14 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
             return true;
         }
 
+        //TODO RemoveAsync araştırılacak.
         public bool Remove(T model)
         {
             EntityEntry<T> entityEntry = Table.Remove(model);
             return entityEntry.State == EntityState.Deleted;
         }
 
-        public async Task<bool> RemoveAsync(int id)
+        public async Task<bool> RemoveAsyncById(int id)
         {
             T model = await Table.FirstOrDefaultAsync(data => data.Id == id);
             return Remove(model);
@@ -53,6 +54,6 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
             EntityEntry entityEntry = Table.Update(model);
             return entityEntry.State == EntityState.Modified;
         }
-        public async Task<int> SaveAsync() => await _context.SaveChangesAsync();
+        public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
     }
 }

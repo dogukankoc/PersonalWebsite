@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonalWebsiteAPI.Domain.Entities;
+using PersonalWebsiteAPI.Domain.Entities.Common;
 
 namespace PersonalWebsiteAPI.Persistence.Context
 {
@@ -8,15 +9,24 @@ namespace PersonalWebsiteAPI.Persistence.Context
         public PersonalWebsiteAPIDbContext(DbContextOptions options) : base(options)
         {
         }
-
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //Interceptor for CreatedDate and UpdatedDate properties
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            base.OnConfiguring(optionsBuilder);
+            var datas = ChangeTracker.Entries<BaseEntity>();
+            foreach(var data in datas) 
+            {
+                _ = data.State switch
+                {
+                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
+                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now
+                };
+            }
+            return await base.SaveChangesAsync(cancellationToken);
         }
     }
 }

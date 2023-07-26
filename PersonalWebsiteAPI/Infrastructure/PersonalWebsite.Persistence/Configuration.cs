@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Protocols;
 
 namespace PersonalWebsiteAPI.Persistence
 {
@@ -15,7 +14,6 @@ namespace PersonalWebsiteAPI.Persistence
                 configurationManager.AddJsonFile("appsettings.json");
                 return configurationManager.GetConnectionString("MSSQLServer");
             }
-        
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.IdentityModel.Protocols;
 using PersonalWebsiteAPI.Persistence;
 using PersonalWebsiteAPI.Persistence.Context;
 
