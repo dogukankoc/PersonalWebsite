@@ -15,19 +15,21 @@ namespace PersonalWebsiteAPI.Persistence.Context
         public DbSet<User> Users { get; set; }
 
         //Interceptor for CreatedDate and UpdatedDate properties
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            var datas = ChangeTracker.Entries<BaseEntity>();
-            foreach(var data in datas) 
-            {
-                _ = data.State switch
-                {
-                    EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
-                    EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now
-                };
-            }
-            return await base.SaveChangesAsync(cancellationToken);
-        }
+        //public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //{
+        //    var datas = ChangeTracker.Entries<BaseEntity>();
+        //    foreach (var data in datas)
+        //    {
+        //        _ = data.State switch
+        //        {
+        //            EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
+        //            EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,
+        //            _ => DateTime.Now
+        //        };
+        //    }
+        //    return await base.SaveChangesAsync(cancellationToken);
+        //}
+       
     }
 }
 

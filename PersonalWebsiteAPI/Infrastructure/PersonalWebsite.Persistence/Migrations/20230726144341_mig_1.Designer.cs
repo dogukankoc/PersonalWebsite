@@ -12,8 +12,8 @@ using PersonalWebsiteAPI.Persistence.Context;
 namespace PersonalWebsiteAPI.Persistence.Migrations
 {
     [DbContext(typeof(PersonalWebsiteAPIDbContext))]
-    [Migration("20230725104011_AddBlogCategoryProjectandUserEntities")]
-    partial class AddBlogCategoryProjectandUserEntities
+    [Migration("20230726144341_mig_1")]
+    partial class mig_1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

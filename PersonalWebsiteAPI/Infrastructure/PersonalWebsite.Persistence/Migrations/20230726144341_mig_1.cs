@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PersonalWebsiteAPI.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class AddBlogCategoryProjectandUserEntities : Migration
+    public partial class mig_1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
