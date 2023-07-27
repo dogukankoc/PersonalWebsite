@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using PersonalWebsiteAPI.Application.Repositories;
 using PersonalWebsiteAPI.Application.Services;
+using PersonalWebsiteAPI.Domain.Entities;
 using PersonalWebsiteAPI.Persistence.Context;
 using PersonalWebsiteAPI.Persistence.Repositories;
 using PersonalWebsiteAPI.Persistence.Services;

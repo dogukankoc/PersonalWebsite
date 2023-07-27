@@ -16,16 +16,19 @@ namespace PersonalWebsiteAPI.API.Controllers
             _userService = userService;
         }
 
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            return Ok(_userService.GetUsers());
+        }
+
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserDTO createUserDTO, CancellationToken cancellationToken)
+        public async Task<IActionResult> Register([FromBody] CreateUserDTO createUserDTO)
         {
 
-            return Ok(await _userService.CreateUser(createUserDTO, cancellationToken));
+            return Ok(await _userService.CreateUser(createUserDTO));
         }
-        //public IActionResult GetUsers()
-        //{
-        //    return Ok();
-        //}
+        
 
         //public IActionResult GetUserById(int id)
 

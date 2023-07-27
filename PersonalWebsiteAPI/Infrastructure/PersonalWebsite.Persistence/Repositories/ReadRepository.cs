@@ -9,14 +9,15 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
     public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
     {
         private readonly PersonalWebsiteAPIDbContext _context;
-        public ReadRepository(PersonalWebsiteAPIDbContext _context)
+        public ReadRepository(PersonalWebsiteAPIDbContext context)
         {
-            _context = _context;
+            _context = context;
         }
         public DbSet<T> Table => _context.Set<T>();
 
         public IQueryable<T> GetAll(bool tracking = true)
         {
+
             var query = Table.AsQueryable();
             if(!tracking)
             {

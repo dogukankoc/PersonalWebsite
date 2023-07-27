@@ -1,8 +1,8 @@
-﻿using PersonalWebsiteAPI.Application.DTOs.User;
+﻿using Mapster;
+using PersonalWebsiteAPI.Application.DTOs.User;
 using PersonalWebsiteAPI.Application.Repositories;
 using PersonalWebsiteAPI.Application.Services;
 using PersonalWebsiteAPI.Domain.Entities;
-using PersonalWebsiteAPI.Persistence.Repositories;
 
 namespace PersonalWebsiteAPI.Persistence.Services
 {
@@ -10,22 +10,21 @@ namespace PersonalWebsiteAPI.Persistence.Services
     {
         private readonly IUserReadRepository _userReadRepository;
         private readonly IUserWriteRepository _userWriteRepository;
+       
         public UserService(IUserReadRepository userReadRepository, IUserWriteRepository userWriteRepository)
         {
             _userReadRepository = userReadRepository;
             _userWriteRepository = userWriteRepository;
         }
-        public async Task<int> CreateUser(CreateUserDTO createUserDTO,CancellationToken cancellationToken)
+
+        public  IQueryable<User> GetUsers()
         {
-            User user = new User()
-            {
-                FirstName = createUserDTO.FirstName,
-                LastName = createUserDTO.LastName,
-                EMail = createUserDTO.Email,
-                Password = createUserDTO.Password
-            };
-            return await _userWriteRepository.AddAsync(user,cancellationToken);
-            
+            return _userReadRepository.GetAll(true);
+        }
+        public async Task<int> CreateUser(CreateUserDTO createUserDTO)
+        {
+           User user = createUserDTO.Adapt<User>();
+           return await _userWriteRepository.AddAsync(user);
         }
 
         public Task<User> DeleteUser(int id)
@@ -33,5 +32,7 @@ namespace PersonalWebsiteAPI.Persistence.Services
             _userWriteRepository.RemoveAsyncById(id);
             return null;
         }
+
+        
     }
 }

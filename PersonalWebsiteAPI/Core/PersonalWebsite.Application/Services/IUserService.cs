@@ -6,8 +6,10 @@ namespace PersonalWebsiteAPI.Application.Services
 {
     public interface IUserService
     {
-        public Task<int> CreateUser(CreateUserDTO createUserDTO, CancellationToken cancellationToken);
+        public Task<int> CreateUser(CreateUserDTO createUserDTO);
 
         public Task<User> DeleteUser(int id);
+
+        public IQueryable<User> GetUsers();
     }
 }

@@ -17,9 +17,9 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
 
         public DbSet<T> Table => _context.Set<T>();
 
-        public async Task<int> AddAsync(T model, CancellationToken cancellationToken)
+        public async Task<int> AddAsync(T model)
         {
-            EntityEntry<T> entityEntry = await Table.AddAsync(model, cancellationToken);
+            EntityEntry<T> entityEntry = await Table.AddAsync(model);
             entityEntry.State = EntityState.Added;
 
             return await _context.SaveChangesAsync();
