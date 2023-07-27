@@ -35,13 +35,13 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
         public bool Remove(T model)
         {
             EntityEntry<T> entityEntry = Table.Remove(model);
+            _context.SaveChanges();
             return entityEntry.State == EntityState.Deleted;
         }
 
         public async Task<bool> RemoveAsyncById(int id)
         {
             T model = await Table.FirstOrDefaultAsync(data => data.Id == id);
-            await _context.SaveChangesAsync();
             return Remove(model);
         }
 
@@ -51,11 +51,17 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
             return true;
         }
 
-        public bool Update(T model)
+        public async Task<T> UpdateAsync(T model)
         {
-            EntityEntry entityEntry = Table.Update(model);
-            return entityEntry.State == EntityState.Modified;
+            EntityEntry<T> entityEntry = Table.Update(model);
+            entityEntry.State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return model;
         }
+
+
         public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
+
+        
     }
 }

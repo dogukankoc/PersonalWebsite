@@ -9,7 +9,7 @@ namespace PersonalWebsiteAPI.Application.Repositories
         bool Remove(T model);
         bool RemoveRange(List<T> datas);
         Task<bool> RemoveAsyncById(int id);
-        bool Update(T model);
+        Task<T> UpdateAsync(T model);
         Task<int> SaveChangesAsync();
     }
 }

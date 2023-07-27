@@ -28,12 +28,12 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
 
         public async Task<T> GetByIdAsync(int id, bool tracking = true)
         {
-            var query = Table.AsQueryable();
+            var query = Table.Where(data => data.Id == id);
             if(!tracking)
             {
                 query = Table.AsNoTracking();
             }
-            return await Table.FirstOrDefaultAsync(data => data.Id == id);
+            return await query.FirstOrDefaultAsync();
         }
 
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> method, bool tracking = true)

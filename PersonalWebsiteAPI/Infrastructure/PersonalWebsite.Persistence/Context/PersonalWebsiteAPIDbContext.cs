@@ -29,7 +29,6 @@ namespace PersonalWebsiteAPI.Persistence.Context
             }
             return await base.SaveChangesAsync(cancellationToken);
         }
-
     }
 }
 

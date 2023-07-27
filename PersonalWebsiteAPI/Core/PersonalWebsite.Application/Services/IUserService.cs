@@ -6,10 +6,14 @@ namespace PersonalWebsiteAPI.Application.Services
 {
     public interface IUserService
     {
+        public IQueryable<User> GetUsers();
+
+        public Task<User> GetUserByIdAsync(int id);
         public Task<int> CreateUser(CreateUserDTO createUserDTO);
 
-        public Task<User> DeleteUser(int id);
+        public Task<User> UpdateUserByIdAsync(int id,UpdateUserDTO updateUserDTO);
 
-        public IQueryable<User> GetUsers();
+        public Task<bool> DeleteUserAsync(int id);
+
     }
 }

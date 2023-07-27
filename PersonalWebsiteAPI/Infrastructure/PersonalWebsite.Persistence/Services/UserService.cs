@@ -21,18 +21,32 @@ namespace PersonalWebsiteAPI.Persistence.Services
         {
             return _userReadRepository.GetAll(true);
         }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            return await _userReadRepository.GetByIdAsync(id);
+        }
         public async Task<int> CreateUser(CreateUserDTO createUserDTO)
         {
            User user = createUserDTO.Adapt<User>();
            return await _userWriteRepository.AddAsync(user);
         }
 
-        public Task<User> DeleteUser(int id)
+        public async Task<User> UpdateUserByIdAsync(int id, UpdateUserDTO updateUserDTO)
         {
-            _userWriteRepository.RemoveAsyncById(id);
-            return null;
+           var user =  updateUserDTO.Adapt(await GetUserByIdAsync(id));
+            
+            return await _userWriteRepository.UpdateAsync(user);
         }
 
+        public async Task<bool> DeleteUserAsync(int id)
+        {
+            return await _userWriteRepository.RemoveAsyncById(id);
+        }
+
+       
+
         
+
     }
 }
