@@ -12,8 +12,8 @@ using PersonalWebsiteAPI.Persistence.Context;
 namespace PersonalWebsiteAPI.Persistence.Migrations
 {
     [DbContext(typeof(PersonalWebsiteAPIDbContext))]
-    [Migration("20230726144341_mig_1")]
-    partial class mig_1
+    [Migration("20230727122856_AddEntitesandDbContext")]
+    partial class AddEntitesandDbContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace PersonalWebsiteAPI.Persistence.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -73,6 +76,9 @@ namespace PersonalWebsiteAPI.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -99,6 +105,9 @@ namespace PersonalWebsiteAPI.Persistence.Migrations
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -135,6 +144,9 @@ namespace PersonalWebsiteAPI.Persistence.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()

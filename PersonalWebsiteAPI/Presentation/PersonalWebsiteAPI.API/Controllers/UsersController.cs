@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PersonalWebsiteAPI.Application.DTOs.Category;
 using PersonalWebsiteAPI.Application.DTOs.User;
 using PersonalWebsiteAPI.Application.Services;
+using PersonalWebsiteAPI.Persistence.Services;
 
 namespace PersonalWebsiteAPI.API.Controllers
 {
@@ -53,6 +55,13 @@ namespace PersonalWebsiteAPI.API.Controllers
         {
             await _userService.DeleteUserAsync(id);
             return Ok();
+        }
+
+        [HttpDelete]
+        [Route("softdelete/{id}")]
+        public async Task<IActionResult> SoftDeleteUserById(int id, SoftDeleteUserDTO softDeleteUserDTO)
+        {
+            return Ok(await _userService.SoftDeleteUserByIdAsync(id, softDeleteUserDTO));
         }
     }
 }

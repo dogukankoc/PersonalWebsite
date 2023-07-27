@@ -18,7 +18,7 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
         public IQueryable<T> GetAll(bool tracking = true)
         {
 
-            var query = Table.AsQueryable();
+            var query = Table.AsQueryable().Where(data => data.IsDeleted == false);
             if(!tracking)
             {
                query = query.AsNoTracking();

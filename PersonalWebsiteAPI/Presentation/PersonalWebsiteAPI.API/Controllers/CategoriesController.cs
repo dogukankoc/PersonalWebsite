@@ -40,5 +40,11 @@ namespace PersonalWebsiteAPI.API.Controllers
         {
             return Ok(await _categoryService.DeleteCategoryByIdAsync(id));
         }
+        [HttpDelete]
+        [Route("softdelete/{id}")]
+        public async Task<IActionResult> SoftDeleteCategoryById(int id, SoftDeleteCategoryDTO softDeleteCategoryDTO)
+        {
+            return Ok(await _categoryService.SoftDeleteCategoryByIdAsync(id, softDeleteCategoryDTO));
+        }
     }
 }

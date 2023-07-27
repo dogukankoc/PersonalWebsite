@@ -1,8 +1,10 @@
 ﻿using Mapster;
+using PersonalWebsiteAPI.Application.DTOs.Category;
 using PersonalWebsiteAPI.Application.DTOs.User;
 using PersonalWebsiteAPI.Application.Repositories;
 using PersonalWebsiteAPI.Application.Services;
 using PersonalWebsiteAPI.Domain.Entities;
+using PersonalWebsiteAPI.Persistence.Repositories;
 
 namespace PersonalWebsiteAPI.Persistence.Services
 {
@@ -44,9 +46,12 @@ namespace PersonalWebsiteAPI.Persistence.Services
             return await _userWriteRepository.RemoveAsyncById(id);
         }
 
-       
-
-        
+        public async Task<User> SoftDeleteUserByIdAsync(int id, SoftDeleteUserDTO softDeleteUserDTO)
+        {
+            User user = await _userReadRepository.GetByIdAsync(id);
+            user.IsDeleted = softDeleteUserDTO.IsDeleted;
+            return await _userWriteRepository.UpdateAsync(user);
+        }
 
     }
 }
