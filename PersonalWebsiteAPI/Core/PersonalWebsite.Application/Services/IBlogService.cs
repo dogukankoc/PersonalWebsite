@@ -1,6 +1,6 @@
 ﻿namespace PersonalWebsiteAPI.Application.Services
 {
-    public class IBlogService
+    public interface IBlogService
     {
     }
 }

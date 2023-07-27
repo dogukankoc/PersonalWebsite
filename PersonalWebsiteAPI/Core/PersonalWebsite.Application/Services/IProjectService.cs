@@ -1,6 +1,6 @@
 ﻿namespace PersonalWebsiteAPI.Application.Services
 {
-    public class IProjectService
+    public interface IProjectService
     {
     }
 }

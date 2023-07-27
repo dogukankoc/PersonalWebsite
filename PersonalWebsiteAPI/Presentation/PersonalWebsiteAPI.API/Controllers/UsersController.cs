@@ -54,6 +54,5 @@ namespace PersonalWebsiteAPI.API.Controllers
             await _userService.DeleteUserAsync(id);
             return Ok();
         }
-
     }
 }
