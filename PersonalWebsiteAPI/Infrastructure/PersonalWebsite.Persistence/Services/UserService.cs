@@ -1,10 +1,8 @@
 ﻿using Mapster;
-using PersonalWebsiteAPI.Application.DTOs.Category;
 using PersonalWebsiteAPI.Application.DTOs.User;
 using PersonalWebsiteAPI.Application.Repositories;
 using PersonalWebsiteAPI.Application.Services;
 using PersonalWebsiteAPI.Domain.Entities;
-using PersonalWebsiteAPI.Persistence.Repositories;
 
 namespace PersonalWebsiteAPI.Persistence.Services
 {
@@ -52,6 +50,5 @@ namespace PersonalWebsiteAPI.Persistence.Services
             user.IsDeleted = true;
             return await _userWriteRepository.UpdateAsync(user);
         }
-
     }
 }

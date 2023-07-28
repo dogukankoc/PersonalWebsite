@@ -35,8 +35,9 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
         public bool Remove(T model)
         {
             EntityEntry<T> entityEntry = Table.Remove(model);
+            var entityState = entityEntry.State == EntityState.Deleted;
             _context.SaveChanges();
-            return entityEntry.State == EntityState.Deleted;
+            return entityState;
         }
 
         public async Task<bool> RemoveAsyncById(int id)
