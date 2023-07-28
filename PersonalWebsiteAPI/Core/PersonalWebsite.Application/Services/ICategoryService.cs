@@ -10,7 +10,7 @@ namespace PersonalWebsiteAPI.Application.Services
         public Task<int> AddCategoryAsync(CreateCategoryDTO createCategoryDTO);
         public Task<Category> UpdateCategoryByIdAsync(int id, UpdateCategoryDTO updateCategoryDTO);
         public Task<bool> DeleteCategoryByIdAsync(int id);
-        public Task<Category> SoftDeleteCategoryByIdAsync(int id, SoftDeleteCategoryDTO softDeleteCategoryDTO);
+        public Task<Category> SoftDeleteCategoryByIdAsync(int id);
 
     }
 }

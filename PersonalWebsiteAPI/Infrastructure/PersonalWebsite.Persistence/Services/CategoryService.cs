@@ -44,10 +44,10 @@ namespace PersonalWebsiteAPI.Persistence.Services
             return await _categoryWriteRepository.RemoveAsyncById(id);
         }
 
-        public async Task<Category> SoftDeleteCategoryByIdAsync(int id, SoftDeleteCategoryDTO softDeleteCategoryDTO)
+        public async Task<Category> SoftDeleteCategoryByIdAsync(int id)
         {
             Category category = await _categoryReadRepository.GetByIdAsync(id);
-            category.IsDeleted = softDeleteCategoryDTO.IsDeleted;
+            category.IsDeleted = true;
             return await _categoryWriteRepository.UpdateAsync(category);
         }
 

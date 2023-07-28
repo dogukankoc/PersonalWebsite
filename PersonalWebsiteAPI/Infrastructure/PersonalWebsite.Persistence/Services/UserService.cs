@@ -46,10 +46,10 @@ namespace PersonalWebsiteAPI.Persistence.Services
             return await _userWriteRepository.RemoveAsyncById(id);
         }
 
-        public async Task<User> SoftDeleteUserByIdAsync(int id, SoftDeleteUserDTO softDeleteUserDTO)
+        public async Task<User> SoftDeleteUserByIdAsync(int id)
         {
             User user = await _userReadRepository.GetByIdAsync(id);
-            user.IsDeleted = softDeleteUserDTO.IsDeleted;
+            user.IsDeleted = true;
             return await _userWriteRepository.UpdateAsync(user);
         }
 

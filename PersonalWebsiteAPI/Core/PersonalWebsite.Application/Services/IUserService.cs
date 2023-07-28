@@ -13,7 +13,7 @@ namespace PersonalWebsiteAPI.Application.Services
         public Task<int> CreateUser(CreateUserDTO createUserDTO);
         public Task<User> UpdateUserByIdAsync(int id,UpdateUserDTO updateUserDTO);
         public Task<bool> DeleteUserAsync(int id);
-        public Task<User> SoftDeleteUserByIdAsync(int id, SoftDeleteUserDTO softDeleteUserDTO);
+        public Task<User> SoftDeleteUserByIdAsync(int id);
 
     }
 }

@@ -59,9 +59,9 @@ namespace PersonalWebsiteAPI.API.Controllers
 
         [HttpDelete]
         [Route("softdelete/{id}")]
-        public async Task<IActionResult> SoftDeleteUserById(int id, SoftDeleteUserDTO softDeleteUserDTO)
+        public async Task<IActionResult> SoftDeleteUserById(int id)
         {
-            return Ok(await _userService.SoftDeleteUserByIdAsync(id, softDeleteUserDTO));
+            return Ok(await _userService.SoftDeleteUserByIdAsync(id));
         }
     }
 }
