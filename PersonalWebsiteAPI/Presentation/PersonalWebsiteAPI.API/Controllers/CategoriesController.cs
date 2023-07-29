@@ -20,7 +20,7 @@ namespace PersonalWebsiteAPI.API.Controllers
             return Ok(_categoryService.GetCategories());
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCategoryById(int id)
+        public async Task<IActionResult> CategoryById(int id)
         {
             return Ok(await _categoryService.GetCategoriesByIdAsync(id));
         }

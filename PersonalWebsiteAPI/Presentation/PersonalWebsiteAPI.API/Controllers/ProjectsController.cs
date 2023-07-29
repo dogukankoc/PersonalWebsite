@@ -8,7 +8,6 @@ namespace PersonalWebsiteAPI.API.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-
         private readonly IProjectService _projectService;
         public ProjectsController(IProjectService projectService)
         {
@@ -16,13 +15,13 @@ namespace PersonalWebsiteAPI.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetProjects()
+        public IActionResult Projects()
         {
             return Ok(_projectService.GetProjects());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProjectById(int id)
+        public async Task<IActionResult> ProjectById(int id)
         {
             return Ok(await _projectService.GetProjectByIdAsync(id));
         }

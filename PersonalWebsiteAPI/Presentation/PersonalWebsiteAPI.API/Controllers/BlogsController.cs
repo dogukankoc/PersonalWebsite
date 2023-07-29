@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PersonalWebsiteAPI.Application.DTOs.Blog;
+using PersonalWebsiteAPI.Application.Services;
 
 namespace PersonalWebsiteAPI.API.Controllers
 {
@@ -7,45 +8,61 @@ namespace PersonalWebsiteAPI.API.Controllers
     [ApiController]
     public class BlogsController : ControllerBase
     {
+        private readonly IBlogService _blogService;
+        public BlogsController(IBlogService blogService)
+        {
+            _blogService = blogService;
+        }
 
-        //public IActionResult GetBlogs()
-        //{
-        //    return Ok();
-        //}
+        [HttpGet]
+        public IActionResult Blogs()
+        {
+            return Ok(_blogService.GetBlogs());
+        }
 
-        //public IActionResult GetBlogById(int id) 
-        //{
-        //    return Ok();
-        //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> BlogById(int id)
+        {
+            return Ok(await _blogService.GetBlogByIdAsync(id));
+        }
 
-        //public IActionResult GetBlogsByCategoryId (int categoryId) 
-        //{
-        //    return Ok();
-        //}
+        [HttpGet]
+        [Route("category/{categoryId}")]
+        public IActionResult BlogsByCategoryId(int categoryId)
+        {
+            return Ok(_blogService.GetBlogsByCategoryId(categoryId));
+        }
 
-        //public IActionResult CreateBlog()
-        //{
-        //    return Ok();
-        //}
+        [HttpGet]
+        [Route("user/{userId}")]
+        public IActionResult BlogsByUserId(int userId)
+        {
+            return Ok(_blogService.GetBlogsByUserId(userId));
+        }
 
-        //public IActionResult UpdateBlog(int id)
-        //{
-        //    return Ok();
-        //}
+        [HttpPost]
+        public async Task<IActionResult> CreateBlog(CreateBlogDTO createBlogDTO)
+        {
+            return Ok(await _blogService.CreateBlogAsync(createBlogDTO));
+        }
 
-        //public IActionResult DeleteBlog(int id) 
-        //{
-        //    return Ok();
-        //}
+        [HttpPut]
+        public async Task<IActionResult> UpdateBlog(int id, UpdateBlogDTO updateBlogDTO)
+        {
+            return Ok(await _blogService.UpdateBlogByIdAsync(id,updateBlogDTO));
+        }
 
-        //public IActionResult DeleteBlogsByCategoryId(int categoryıd)
-        //{
-        //    return Ok();
-        //}
-        //public IActionResult DeleteBlogs()
-        //{
-        //    return Ok();
-        //}
+        [HttpDelete]
+        public async Task<IActionResult> DeleteBlog(int id)
+        {
+            return Ok(await _blogService.DeleteBlogByIdAsync(id));
+        }
 
+        [HttpPut]
+        [Route("softdelete/{id}")]
+        public async Task<IActionResult> SoftDeleteBlogById(int id)
+        {
+            return Ok(await _blogService.SoftDeleteBlogByIdAsync(id));
+        }
     }
 }

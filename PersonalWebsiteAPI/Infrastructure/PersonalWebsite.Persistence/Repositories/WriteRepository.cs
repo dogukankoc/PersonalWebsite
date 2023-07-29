@@ -59,10 +59,6 @@ namespace PersonalWebsiteAPI.Persistence.Repositories
             await _context.SaveChangesAsync();
             return model;
         }
-
-
         public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
-
-        
     }
 }

@@ -18,13 +18,13 @@ namespace PersonalWebsiteAPI.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetUsers()
+        public IActionResult Users()
         {
             return Ok(_userService.GetUsers());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> User(int id)
         {
             return Ok(await _userService.GetUserByIdAsync(id));
         }
