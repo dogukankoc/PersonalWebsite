@@ -1,4 +1,16 @@
-    <button (click)="GetAll()">Projeleri Getir</button>
+<div class="project-container">
+  <div class="project-card">
+    <img src="../../../../assets/images/hero-body.svg" alt="">
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio quibusdam animi hic, reprehenderit quae, quaerat soluta, ipsa recusandae adipisci voluptatum sit necessitatibus facilis nobis voluptatem nesciunt laudantium saepe qui. Cupiditate corrupti accusamus hic veniam unde. Id tempore fugiat, sit nisi quasi corrupti eligendi sequi nam accusantium enim ex labore.</p>
+  </div>
+  <div class="project-card">
+    <img src="../../../../assets/images/hero-body.svg" alt="">
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio quibusdam animi hic, reprehenderit quae, quaerat soluta, ipsa recusandae adipisci voluptatum sit necessitatibus facilis nobis voluptatem nesciunt laudantium saepe qui. Cupiditate corrupti accusamus hic veniam unde. Id tempore fugiat, sit nisi quasi corrupti eligendi sequi nam accusantium enim ex labore.</p>
+  </div>
+</div>
+
     <div>
       <ul>
         <li *ngFor="let project of projectList">Project Id: {{project.id}}- User Id: {{project.userId}} Project Name: {{project.name}} Project Detail: {{project.detail}} Project Is Deleted? {{project.isDeleted}} Project Created Date: {{project.createdDate}}</li>

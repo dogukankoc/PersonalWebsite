@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgModule, OnInit } from '@angular/core';
 import { ProjectModel } from '../../../core/models/project.model';
 import { ProjectService } from '../../../core/services/project.service';
+declare var $: any
 
 @Component({
   selector: 'app-project',
@@ -14,7 +15,12 @@ export class ProjectComponent implements OnInit {
   constructor(private projectService: ProjectService) { }
  
   ngOnInit() {
+    $(document).ready(function () {
+    }) == this.GetAll();
   }
   GetAll() {
-    this.projectService.GetAll().subscribe((response: ProjectModel[]) => this.projectList = response);
+     return this.projectService.GetAll().subscribe((response: ProjectModel[]) => this.projectList = response);
   }}
+  
+
+  
