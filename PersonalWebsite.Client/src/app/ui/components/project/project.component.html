@@ -1,1 +1,7 @@
-<p>project works!</p>
+    <button (click)="GetAll()">Projeleri Getir</button>
+    <div>
+      <ul>
+        <li *ngFor="let project of projectList">Project Id: {{project.id}}- User Id: {{project.userId}} Project Name: {{project.name}} Project Detail: {{project.detail}} Project Is Deleted? {{project.isDeleted}} Project Created Date: {{project.createdDate}}</li>
+      </ul>
+    </div>
+  

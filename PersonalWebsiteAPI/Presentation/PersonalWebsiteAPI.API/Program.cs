@@ -9,6 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddPersistanceServices();
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+            policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
 
@@ -16,6 +18,8 @@ var app = builder.Build();
 app.UseSwagger();
 
 app.UseSwaggerUI();
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 

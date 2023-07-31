@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
+import { ProjectModule } from './project/project.module';
+import { AboutmeModule } from './aboutme/aboutme.module';
+import { BlogModule } from './blog/blog.module';
 
 
 
@@ -11,7 +14,7 @@ import { RouterModule } from '@angular/router';
     HomeComponent
   ],
   imports: [
-    CommonModule,HomeModule,RouterModule
+    CommonModule,HomeModule,RouterModule,ProjectModule,AboutmeModule,BlogModule
   ],
   exports:[HomeComponent]
 })
