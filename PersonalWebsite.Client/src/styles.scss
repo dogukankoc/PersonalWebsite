@@ -109,8 +109,6 @@ header {
     width: 150px;
 }
 
-
-
 /* Footer */
 
 footer {
@@ -133,26 +131,29 @@ footer #footer-social {
 
 /* Projects */
 .project-container {
-    width: 1600px;
-    height: 1100px;
+    width: 1400px;
+    height: 2300px;
     margin: 10px;
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    align-items: center;
     
 }
 
 .project-container .project-card {
-    padding: auto;
-    margin: 20px;
-    width: 1600px;
+    padding: 50px;
+    margin: 50px;
+    width: 700px;
     height: 500px;
     border: 5px solid var(--white);
-    text-align: center;
 }
 
 .project-container .project-card img{
 max-width: 300px;
 max-height: 300px;
 display: block;
-margin: auto;
+margin:auto;
+margin-bottom: 50px;
+padding: auto;
 }

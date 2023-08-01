@@ -6,4 +6,5 @@ export class ProjectModel {
     isDeleted: boolean;
     createdDate:Date;
     updatedDate:Date;
+    imagePath:string;
 }

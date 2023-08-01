@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
 import { ProjectService } from './core/services/project.service';
+import { BlogService } from './core/services/blog.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ProjectService } from './core/services/project.service';
     UiModule,
     HttpClientModule
   ],
-  providers: [{provide:'url', useValue:"https://localhost:7198/"},ProjectService],
+  providers: [{provide:'url', useValue:"https://localhost:7198/"},BlogService,ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
