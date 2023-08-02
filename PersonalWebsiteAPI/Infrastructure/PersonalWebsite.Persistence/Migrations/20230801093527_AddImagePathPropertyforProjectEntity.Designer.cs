@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonalWebsiteAPI.Persistence.Context;
 
@@ -11,9 +12,11 @@ using PersonalWebsiteAPI.Persistence.Context;
 namespace PersonalWebsiteAPI.Persistence.Migrations
 {
     [DbContext(typeof(PersonalWebsiteAPIDbContext))]
-    partial class PersonalWebsiteAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230801093527_AddImagePathPropertyforProjectEntity")]
+    partial class AddImagePathPropertyforProjectEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,9 +42,6 @@ namespace PersonalWebsiteAPI.Persistence.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

@@ -25,6 +25,10 @@ namespace PersonalWebsiteAPI.Persistence.Services
         {
             return await _projectReadRepository.GetByIdAsync(id);
         }
+        public List<Project> LastProjectsByNumber(int number)
+        {
+            return _projectReadRepository.Table.OrderByDescending(data => data.CreatedDate).Take(number).ToList();
+        }
 
         public async Task<int> CreateProjectAsync(CreateProjectDTO createProjectDTO)
         {
@@ -48,5 +52,6 @@ namespace PersonalWebsiteAPI.Persistence.Services
             project.IsDeleted = true;
             return await _projectWriteRepository.UpdateAsync(project);
         }
+
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using PersonalWebsiteAPI.Application.DTOs.Blog;
 using PersonalWebsiteAPI.Application.Repositories;
 using PersonalWebsiteAPI.Application.Services;
 using PersonalWebsiteAPI.Domain.Entities;
+using PersonalWebsiteAPI.Persistence.Repositories;
 
 namespace PersonalWebsiteAPI.Persistence.Services
 {
@@ -34,6 +36,11 @@ namespace PersonalWebsiteAPI.Persistence.Services
         {
             return _blogReadRepository.GetWhere(data => data.UserId == userId);
         }
+        public List<Blog> LastBlogsByNumber(int number)
+        {
+            return _blogReadRepository.Table.OrderByDescending(b => b.CreatedDate).Take(number).ToList();
+        }
+        
 
         public async Task<int> CreateBlogAsync(CreateBlogDTO createBlogDTO)
         {
@@ -57,5 +64,6 @@ namespace PersonalWebsiteAPI.Persistence.Services
             blog.IsDeleted = true;
             return await _blogWriteRepository.UpdateAsync(blog);
         }
+
     }
 }

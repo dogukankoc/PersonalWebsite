@@ -39,6 +39,12 @@ namespace PersonalWebsiteAPI.API.Controllers
         {
             return Ok(_blogService.GetBlogsByUserId(userId));
         }
+        [HttpGet]
+        [Route("lastblogs/{number}")]
+        public IActionResult LastBlogs(int number)
+        {
+            return Ok(_blogService.LastBlogsByNumber(number));
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateBlog(CreateBlogDTO createBlogDTO)

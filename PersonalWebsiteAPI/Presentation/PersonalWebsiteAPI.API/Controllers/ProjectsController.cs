@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PersonalWebsiteAPI.Application.DTOs.Project;
 using PersonalWebsiteAPI.Application.Services;
+using PersonalWebsiteAPI.Persistence.Services;
 
 namespace PersonalWebsiteAPI.API.Controllers
 {
@@ -24,6 +25,12 @@ namespace PersonalWebsiteAPI.API.Controllers
         public async Task<IActionResult> ProjectById(int id)
         {
             return Ok(await _projectService.GetProjectByIdAsync(id));
+        }
+        [HttpGet]
+        [Route("lastprojects/{number}")]
+        public IActionResult LastBlogs(int number)
+        {
+            return Ok(_projectService.LastProjectsByNumber(number));
         }
 
         [HttpPost]

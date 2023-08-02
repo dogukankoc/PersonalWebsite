@@ -1,4 +1,5 @@
-﻿using PersonalWebsiteAPI.Application.DTOs.Blog;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonalWebsiteAPI.Application.DTOs.Blog;
 using PersonalWebsiteAPI.Domain.Entities;
 
 namespace PersonalWebsiteAPI.Application.Services
@@ -13,6 +14,7 @@ namespace PersonalWebsiteAPI.Application.Services
         Task<Blog> UpdateBlogByIdAsync(int id, UpdateBlogDTO updateBlogDTO);
         Task<bool> DeleteBlogByIdAsync(int id);
         Task<Blog> SoftDeleteBlogByIdAsync(int id);
-
+        
+        List<Blog> LastBlogsByNumber(int number);
     }
 }
