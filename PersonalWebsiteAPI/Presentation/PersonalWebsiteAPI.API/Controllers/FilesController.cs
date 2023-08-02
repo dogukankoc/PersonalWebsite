@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PersonalWebsiteAPI.Application.Repositories;
 using PersonalWebsiteAPI.Application.Services;
 
 namespace PersonalWebsiteAPI.API.Controllers
@@ -8,21 +9,18 @@ namespace PersonalWebsiteAPI.API.Controllers
     public class FilesController : ControllerBase
     {
         private readonly IFileService _fileService;
-        public FilesController(IFileService fileService)
+        private readonly IProjectService _projectService;
+        public FilesController(IFileService fileService, IProjectService projectService)
         {
             _fileService = fileService;
-        }
-
-        [HttpGet]
-        public IActionResult ImageUpload()
-        {
-            return Ok();
+            _projectService = projectService;
         }
 
         [HttpPost]
-        public IActionResult ImageUpload(IFormFile formFile)
+        public async Task<IActionResult> FileUpload(IFormFile formFile)
         {
-            return Ok();
+            
+            return Ok(await _fileService.FileUpload(formFile));
         }
     }
 }

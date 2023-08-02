@@ -28,6 +28,7 @@ namespace PersonalWebsiteAPI.Persistence
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IFileService, FileService>();
         }
     }
 }

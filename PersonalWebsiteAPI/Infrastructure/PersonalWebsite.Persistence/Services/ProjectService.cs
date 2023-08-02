@@ -10,10 +10,12 @@ namespace PersonalWebsiteAPI.Persistence.Services
     {
         private readonly IProjectWriteRepository _projectWriteRepository;
         private readonly IProjectReadRepository _projectReadRepository;
-        public ProjectService(IProjectWriteRepository projectWriteRepository, IProjectReadRepository projectReadRepository)
+        private readonly IFileService _fileService;
+        public ProjectService(IProjectWriteRepository projectWriteRepository, IProjectReadRepository projectReadRepository, IFileService fileService)
         {
             _projectWriteRepository = projectWriteRepository;
             _projectReadRepository = projectReadRepository;
+            _fileService = fileService;
         }
 
         public IQueryable<Project> GetProjects()
@@ -32,6 +34,7 @@ namespace PersonalWebsiteAPI.Persistence.Services
 
         public async Task<int> CreateProjectAsync(CreateProjectDTO createProjectDTO)
         {
+              
             Project project = createProjectDTO.Adapt<Project>();
             return await _projectWriteRepository.AddAsync(project);
         }
