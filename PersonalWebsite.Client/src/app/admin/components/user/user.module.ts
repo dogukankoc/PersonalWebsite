@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { RouterModule } from '@angular/router';
 
-
-
-
 @NgModule({
   declarations: [
     UserComponent
@@ -13,7 +10,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule.forChild([{path:'', component:UserComponent}])
-
-  ]
+  ],
+  exports:[UserComponent]
 })
 export class UserModule { }

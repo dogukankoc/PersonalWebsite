@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule.forChild([{path:'', component:BlogComponent}]) 
-  ]
+  ],
+  exports:[BlogComponent]
+
 })
 export class BlogModule { }
