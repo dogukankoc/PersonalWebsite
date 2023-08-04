@@ -1,1 +1,13 @@
-<p>blog works!</p>
+<div class="blogs">
+    <p>Blogs</p>
+    <div class="project-container">
+        <li *ngFor="let blog of blogList">
+          <div class="project-card">
+            <img src="{{blog.imagePath}}" alt="Project Image">
+            <h5>{{blog.title}}</h5>
+            <p>{{blog.content}}</p>
+          </div>
+        </li>
+    </div>
+</div>
+

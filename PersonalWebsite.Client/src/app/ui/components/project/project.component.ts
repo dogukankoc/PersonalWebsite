@@ -11,6 +11,7 @@ declare var $: any
 })
 export class ProjectComponent implements OnInit {
   projectList: ProjectModel[];
+  project:ProjectModel;
   
   constructor(private projectService: ProjectService) { }
  
@@ -20,7 +21,12 @@ export class ProjectComponent implements OnInit {
   }
   GetAll() {
      return this.projectService.GetAll().subscribe((response: ProjectModel[]) => this.projectList = response);
-  }}
+  }
+  // GetSingle(id:number) {
+  //   this.projectService.GetSingle(id).subscribe((response: ProjectModel) => this.project = response);
+  // }
+}
+  
   
 
   

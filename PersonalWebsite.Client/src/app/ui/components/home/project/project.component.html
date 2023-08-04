@@ -1,1 +1,13 @@
-<p>project works!</p>
+<div class="projects">
+    <p>Projects</p>
+    <div class="project-container">
+        <li *ngFor="let project of projectList">
+          <div class="project-card">
+            <img src="{{project.imagePath}}" alt="Project Image">
+            <h5>{{project.name}}</h5>
+            <p>{{project.detail}}</p>
+          </div>
+        </li>
+    </div>
+</div>
+

@@ -9,17 +9,8 @@ export class ProjectService {
   GetAll() {
     return this.httpClient.get(this.url + "api/projects");
   }
-  // GetSingle(id: number) {
-  //   return this.httpClient.get(this.url + "api/personel/getsingle/" + id);
-  // }
-  // PostAdd(personel: Personel) {
-  //   return this.httpClient.post(this.url + "api/personel/postadd", personel);
-  // }
-  // PutUpdate(personel: Personel) {
-  //   return this.httpClient.put(this.url + "api/personel/putupdate", personel);
-  // }
-  // Remove(id: number) {
-  //   return this.httpClient.delete(this.url + "api/personel/remove/" + id);
-  // }
+  GetLastProjectsByNumber(lastProjects: number) {
+    return this.httpClient.get(this.url + "api/projects/lastprojects/" + lastProjects);
+  }
 
 }

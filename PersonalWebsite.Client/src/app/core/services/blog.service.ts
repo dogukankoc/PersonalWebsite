@@ -9,4 +9,7 @@ export class BlogService {
   GetAll() {
     return this.httpClient.get(this.url + "api/blogs");
   }
+  GetLastBlogsByNumber(lastBlogs: number) {
+    return this.httpClient.get(this.url + "api/blogs/lastblogs/" + lastBlogs);
+  }
 }
