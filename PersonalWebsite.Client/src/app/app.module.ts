@@ -11,6 +11,7 @@ import { BlogService } from './core/services/blog.service';
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
