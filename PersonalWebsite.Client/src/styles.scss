@@ -177,4 +177,26 @@ padding: auto;
     
 }
 
+.layout {
+    display: flex;
+    justify-content: space-between;
+    
+    height: 1000px;
+    width: 100%px;
+    border: solid 5px;
+}
 
+.layout .sidenav {
+    height: 1000px;
+    width: 100px;
+}
+.layout .main-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    width: 78%;
+    float: left;
+    border: solid 2px;
+    text-align: center;
+}
