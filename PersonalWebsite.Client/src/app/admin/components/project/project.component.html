@@ -1,1 +1,15 @@
-<p>project works!</p>
+<a style="float:right; margin:10px;" routerLink="#"><button type="button" class="btn btn-secondary">Create Project</button></a> <br />
+<div class="ul">
+    <ul class="list-group" >
+            <li *ngFor = "let project of projectList" class="list-group-item " style="background-color: black; display: flex; justify-content: space-between;">
+                <h6 style="color: white;">{{project.name}}</h6> 
+                <div class="buttons">
+                    <a href="#" ><button type="button" class="btn btn-outline-warning btn1" style="margin-right: 20px;">Update </button></a>
+
+                    <button id="#" type="button" class="btn btn-outline-danger btn1" onclick="DeleteSite()">
+                        Delete
+                    </button>
+                </div>
+            </li>
+    </ul>
+</div>
